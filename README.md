@@ -18,7 +18,7 @@ How to run in Python (presuming you have changed the config.py)
       git clone https://github.com/elowine/streamr_alerting.git
       cd streamr_alerting/
       py -m pip install -r requirements.txt
-      python3 src/main.py
+      python3 main.py
 
 ---
 # List of features (default to false):
