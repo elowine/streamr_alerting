@@ -110,12 +110,21 @@ class Handler:
                 address_node = node.get('address')
                 data['name'] = node.get('name')
                 if self.status_node(address_node):
+                    data_fichier = {
+                        data['name']: "KO"
+                    }
                     if config.discord_notif:
                         content = self.util.message_node_offline(config.telegram, data)
                         self.discord.send_message(config.discord_channel_id, config.discord_token, content)
                     if config.telegram_notif:
                         content = self.util.message_node_offline(config.telegram, data)
                         self.telegram.send_message(config.telegram_chat_id, config.telegram_token, content)
+                else:
+                    data_fichier = {
+                        data['name']: "OK"
+                    }
 
+                if config.save_in_file:
+                    self.util.save_in_file(str(data_fichier), "status")
         except Exception as e:
             print(e)
