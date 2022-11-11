@@ -1,11 +1,11 @@
 import json
 from typing import Optional
 
-from src.common import config
+from common import config
 import requests as rq
 from datetime import datetime
 
-from src.services.util_services import UtilServices
+from services.util_services import UtilServices
 
 
 class DataServices:

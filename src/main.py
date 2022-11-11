@@ -1,8 +1,8 @@
 import os
 
-if os.path.exists('src/common/config.py'):
-    from src.common import config
-    from src.handler.handler import Handler as h
+if os.path.exists(f'{os.path.dirname( __file__ )}/common/config.py'):
+    from common import config
+    from handler.handler import Handler as h
 
     from apscheduler.schedulers.blocking import BlockingScheduler
     import time
@@ -31,8 +31,6 @@ if os.path.exists('src/common/config.py'):
             exec_get_info()
             if config.cron_active:
                 scheduler = BlockingScheduler(timezone='Europe/Paris')
-                check_status_node = False
-                get_infos = False
                 # Execution every hour
                 scheduler.add_job(exec_check_status_node, trigger='cron', hour="0/1")
                 # Execution every Monday at 10:00 am
