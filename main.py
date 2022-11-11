@@ -31,8 +31,6 @@ if os.path.exists('src/common/config.py'):
             exec_get_info()
             if config.cron_active:
                 scheduler = BlockingScheduler(timezone='Europe/Paris')
-                check_status_node = False
-                get_infos = False
                 # Execution every hour
                 scheduler.add_job(exec_check_status_node, trigger='cron', hour="0/1")
                 # Execution every Monday at 10:00 am
