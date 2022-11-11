@@ -1,6 +1,6 @@
 import os
 
-if os.path.exists('src/common/config.py'):
+if os.path.exists(f'{os.path.dirname( __file__ )}/common/config.py'):
     from common import config
     from handler.handler import Handler as h
 
