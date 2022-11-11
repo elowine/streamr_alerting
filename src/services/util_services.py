@@ -26,7 +26,9 @@ class UtilServices:
     def save_in_file(self, data: str, name_file: str = "data"):
         if not os.path.isdir(config.dir_save):
             os.makedirs(config.dir_save)
-        fichier = open(f"{config.dir_save}/{datetime.now().strftime('%Y%m%d-%H%M')}_{name_file}.txt", "a")
+        fichier = open(
+            f"{os.getcwd()}/{config.dir_save}/{datetime.now().strftime('%Y%m%d-%H%M')}_{name_file}.txt",
+            "a")
         fichier.write(data + "\n")
 
     def message_node_offline(self, service_notif: str, data):
