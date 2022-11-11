@@ -32,7 +32,7 @@ if os.path.exists(f'{os.path.dirname( __file__ )}/common/config.py'):
             if config.cron_active:
                 scheduler = BlockingScheduler(timezone='Europe/Paris')
                 # Execution every hour
-                scheduler.add_job(exec_check_status_node, trigger='cron', minute="0/1")
+                scheduler.add_job(exec_check_status_node, trigger='cron', hour="0/1")
                 # Execution every Monday at 10:00 am
                 scheduler.add_job(exec_get_info, trigger='cron', hour="10", minute="0", day="2/1")
 
