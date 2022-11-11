@@ -15,10 +15,25 @@ If you want to activate any of them you just have to set the value to <b>True</b
 ---
 How to run in Python (presuming you have changed the config.py)
       
+Connect to the machine with ssh :
+
       git clone https://github.com/elowine/streamr_alerting.git
       cd streamr_alerting/
-      py -m pip install -r requirements.txt
-      python3 main.py
+      pip install -r requirements.txt
+
+Disconnect and run the following command 
+
+      ssh -i xxxxx.key name_user@xxx.xxx.xxx.xxx nohup python3 streamr_alerting/src/main.py &
+
+Check the processes in progress
+
+      cd streamr_alerting/
+      python3 src/services/check_subprocess.py
+
+
+if you need to kill the process use command :
+
+      kill $(pgrep -f 'python3 streamr_alerting/src/main.py')
 
 ---
 # List of features (default to false):
