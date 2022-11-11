@@ -1,12 +1,12 @@
 from typing import Optional, List
 from currency_symbols import CurrencySymbols
 
-from src.common import config
+from common import config
 
-from src.services.data_services import DataServices
-from src.services.discord_services import DiscordServices
-from src.services.telegram_services import TelegramServices
-from src.services.util_services import UtilServices
+from services.data_services import DataServices
+from services.discord_services import DiscordServices
+from services.telegram_services import TelegramServices
+from services.util_services import UtilServices
 
 
 class Handler:

@@ -1,6 +1,6 @@
 import os
 from datetime import datetime
-from src.common import config
+from common import config
 
 
 class UtilServices:

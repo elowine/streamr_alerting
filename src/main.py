@@ -1,8 +1,8 @@
 import os
 
 if os.path.exists('src/common/config.py'):
-    from src.common import config
-    from src.handler.handler import Handler as h
+    from common import config
+    from handler.handler import Handler as h
 
     from apscheduler.schedulers.blocking import BlockingScheduler
     import time
