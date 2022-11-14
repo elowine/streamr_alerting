@@ -32,6 +32,8 @@ class Handler:
             sum_staked_currentcy = 0
             sum_paid_currentcy = 0
             sum_reward_currentcy = 0
+            sum_est_month_reward = 0
+            sum_est_year_reward = 0
             data_for_message = {}
             sum_status_node = {}
             for node in self.list_nodes:
@@ -67,6 +69,8 @@ class Handler:
                         sum_reward_currentcy = round(coin_value * sum_reward, 2)
                         sum_paid_currentcy = round(coin_value * sum_paid_data, 2)
                         sum_staked_currentcy = round(coin_value * sum_staked_data, 2)
+                        sum_est_month_reward += data_for_message["est_month_reward"]
+                        sum_est_year_reward += data_for_message["est_year_reward"]
                         sum_status_node[data_for_message["name"]] = data_for_message["status_node"]
 
                     if config.discord_notif or config.telegram_notif:
@@ -87,6 +91,8 @@ class Handler:
             data_for_message["sum_paid_currentcy"] = sum_paid_currentcy
             data_for_message["sum_staked_currentcy"] = sum_staked_currentcy
             data_for_message["sum_status_node"] = sum_status_node
+            data_for_message["sum_est_month_reward"] = sum_est_month_reward
+            data_for_message["sum_est_year_reward"] = sum_est_year_reward
 
             if config.sum_node and (config.discord_notif or config.telegram_notif):
                 if config.discord_notif:
