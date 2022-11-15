@@ -75,10 +75,10 @@ class Handler:
 
                     if config.discord_notif or config.telegram_notif:
                         if config.discord_notif:
-                            content = self.util.message_notif(config.discord, data_for_message)
+                            content = self.util.message_notif(config.discord, data_for_message, coin_value)
                             self.discord.send_message(config.discord_channel_id, config.discord_token, content)
                         if config.telegram_notif:
-                            content = self.util.message_notif(config.telegram, data_for_message)
+                            content = self.util.message_notif(config.telegram, data_for_message, coin_value)
                             self.telegram.send_message(config.telegram_chat_id, config.telegram_token, content)
 
                     if config.save_in_file:
@@ -96,10 +96,10 @@ class Handler:
 
             if config.sum_node and (config.discord_notif or config.telegram_notif):
                 if config.discord_notif:
-                    content = self.util.message_notif(config.discord, data_for_message, config.sum_node)
+                    content = self.util.message_notif(config.discord, data_for_message, coin_value, config.sum_node)
                     self.discord.send_message(config.discord_channel_id, config.discord_token, content)
                 if config.telegram_notif:
-                    content = self.util.message_notif(config.telegram, data_for_message, config.sum_node)
+                    content = self.util.message_notif(config.telegram, data_for_message, coin_value, config.sum_node)
                     self.telegram.send_message(config.telegram_chat_id, config.telegram_token, content)
 
         except Exception as e:
