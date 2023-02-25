@@ -59,7 +59,8 @@ class UtilServices:
             content += f"{etoile}SUM DATA{etoile}\n"
             content += f"Node Status : {status_node}\n"
             content += f"Total Stacked : {round(data['sum_staked_data'], 2)} | {data['sum_staked_currentcy']}{data['currency_symbol']}\n"
-            content += f"Received Rewards : {data['sum_paid_data']} | {data['sum_paid_currentcy']}{data['currency_symbol']}\n"
+            content += f"To be received : {round(data['sum_reward']-data['sum_paid_data'], 2)} | {round(data['sum_reward_currentcy']-data['sum_paid_currentcy'], 2)}{data['currency_symbol']}\n"
+            content += f"Received Rewards : {round(data['sum_paid_data'],2)} | {data['sum_paid_currentcy']}{data['currency_symbol']}\n"
             content += f"Accumulated Rewards : {round(data['sum_reward'])} | {data['sum_reward_currentcy']}{data['currency_symbol']} \n\n"
             est_month_reward = round(data['sum_est_month_reward'], 2)
             est_year_reward = round(data['sum_est_year_reward'], 2)
@@ -67,6 +68,7 @@ class UtilServices:
             content += f"{etoile}{data['name']}{etoile}\n"
             content += f"Node Status : {data['status_node']}\n"
             content += f"Total Stacked : {data['staked_data']} | {data['staked_currentcy']}{data['currency_symbol']}\n"
+            content += f"To be received : {round(data['reward'] - data['paid_data'], 2)} | {round(data['reward_currentcy'] - data['paid_currentcy'], 2)}{data['currency_symbol']}\n"
             content += f"Received Rewards : {data['paid_data']} | {data['paid_currentcy']}{data['currency_symbol']}\n"
             content += f"Accumulated Rewards : {data['reward']} | {data['reward_currentcy']}{data['currency_symbol']} \n"
             content += f"Percent Rewards : {data['percent_reward']}: \n\n"
